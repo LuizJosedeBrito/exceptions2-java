@@ -55,15 +55,20 @@ public class Account {
 	}
 	
 	public void withdraw(double amount) {
-		if(amount<this.balance) {
-			throw new DomainException("Not enough balance.");
-		}
-		if(amount<this.withdrawLimit) {
+		if(amount>this.withdrawLimit) {
 			throw new DomainException("The amount exceeds withdraw limit.");
+		}
+		if(amount>this.balance) {
+			throw new DomainException("Not enough balance.");
 		}
 		
 		this.balance-=amount;
 			
+	}
+	
+	@Override
+	public String toString() {
+		return " ";
 	}
 	
 
